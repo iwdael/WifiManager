@@ -19,6 +19,6 @@ public class WifiViewHolder extends RecyclerView.ViewHolder {
 
     public void bindData(IWifi wifi) {
         name.setText(wifi.name());
-        desc.setText(wifi.description());
+        desc.setText(wifi.description2());
     }
 }
