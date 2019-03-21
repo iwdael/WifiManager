@@ -40,8 +40,10 @@ public class MainActivity extends AppCompatActivity implements OnWifiChangeListe
             @Override
             public void onRefresh(@NonNull Refresh refreshLayout) {
                 manager.scanWifi();
+                refresh.finishRefresh(500);
             }
         });
+        refresh.setEnableLoadMore(false);
         manager = WifiManager.create(this);
         manager.setOnWifiChangeListener(this);
         manager.setOnWifiConnectListener(this);

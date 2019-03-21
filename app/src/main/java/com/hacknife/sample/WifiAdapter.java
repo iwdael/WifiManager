@@ -19,7 +19,7 @@ public class WifiAdapter extends RecyclerView.Adapter<WifiViewHolder> {
 
     @Override
     public WifiViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new WifiViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_wifi, viewGroup));
+        return new WifiViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_wifi, null));
     }
 
     @Override

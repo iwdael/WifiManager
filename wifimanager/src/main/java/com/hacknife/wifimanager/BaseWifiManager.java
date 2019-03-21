@@ -135,7 +135,9 @@ public abstract class BaseWifiManager implements IWifiManager {
                 }
             } else if (action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
                 NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+                if (info == null) return;
                 NetworkInfo.DetailedState state = info.getDetailedState();
+                if (state == null) return;
                 String SSID = info.getExtraInfo();
                 if (TextUtils.isEmpty(SSID)) return;
                 if (state == NetworkInfo.DetailedState.IDLE) {
@@ -163,7 +165,9 @@ public abstract class BaseWifiManager implements IWifiManager {
                 }
             } else if (action.equals(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION)) {
                 NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+                if (info == null) return;
                 NetworkInfo.DetailedState state = info.getDetailedState();
+                if (state == null) return;
                 String SSID = info.getExtraInfo();
                 if (TextUtils.isEmpty(SSID)) return;
                 int code = intent.getIntExtra(WifiManager.EXTRA_SUPPLICANT_ERROR, -1);
