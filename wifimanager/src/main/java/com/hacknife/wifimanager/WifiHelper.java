@@ -3,6 +3,9 @@ package com.hacknife.wifimanager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class WifiHelper {
@@ -102,5 +105,21 @@ public class WifiHelper {
         int networkId = manager.addNetwork(configuration);
         manager.saveConfiguration();
         return networkId;
+    }
+
+    public static List<IWifi> removeDuplicate(List<IWifi> list) {
+        Collections.sort(list, new Comparator<IWifi>() {
+            @Override
+            public int compare(IWifi l, IWifi r) {
+                return r.level() - l.level();
+            }
+        });
+        List<IWifi> set = new ArrayList<>();
+        for (IWifi wifi : list) {
+            if (!set.contains(wifi)) {
+                set.add(wifi);
+            }
+        }
+        return set;
     }
 }

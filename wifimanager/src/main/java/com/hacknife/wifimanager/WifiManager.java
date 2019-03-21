@@ -1,7 +1,7 @@
 package com.hacknife.wifimanager;
 
 import android.content.Context;
-import android.net.wifi.WifiConfiguration;
+
 
 import java.util.List;
 
@@ -52,7 +52,8 @@ public class WifiManager extends BaseWifiManager {
 
     @Override
     public boolean connectSavedWifi(IWifi wifi) {
-        return manager.enableNetwork(wifi.networkId(), true);
+        int networkId = WifiHelper.configOrCreateWifi(manager, wifi, null);
+        return manager.enableNetwork(networkId, true);
     }
 
     @Override
@@ -67,6 +68,8 @@ public class WifiManager extends BaseWifiManager {
 
     @Override
     public List<IWifi> getWifi() {
-        return null;
+        return wifis;
     }
+
+
 }

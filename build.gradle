@@ -3,7 +3,7 @@
 buildscript {
     ext.buildConfig = [
             'compileSdkVersion': 28,
-            'minSdkVersion'    : 15,
+            'minSdkVersion'    : 19,
             'targetSdkVersion' : 28,
             'versionCode'      : 1,
             'versionName'      : '1.0',
@@ -11,7 +11,7 @@ buildscript {
     ext.bintray = [
             'userOrg'       : 'hacknife',
             'groupId'       : 'com.hacknife',
-            'publishVersion': '1.1.4',
+            'publishVersion': '0.0.5',
             'desc'          : '',
             'website'       : 'https://github.com/hacknife/wifimanager',
     ]
@@ -21,7 +21,8 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.novoda:bintray-release:0.7.0'
     }
 }
 
@@ -29,7 +30,10 @@ allprojects {
     repositories {
         google()
         jcenter()
-
+    }
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
     }
 }
 

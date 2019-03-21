@@ -23,4 +23,13 @@ public interface IWifiManager {
     boolean removeWifi(IWifi wifi);
 
     List<IWifi> getWifi();
+
+    void setOnWifiConnectListener(OnWifiConnectListener onWifiConnectListener);
+
+    void setOnWifiStateChangeListener(OnWifiStateChangeListener onWifiStateChangeListener);
+
+    void setOnWifiChangeListener(OnWifiChangeListener onWifiChangeListener);
+
+
+    void destroy();
 }

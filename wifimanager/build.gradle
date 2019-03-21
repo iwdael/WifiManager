@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion buildConfig.compileSdkVersion
     defaultConfig {
@@ -8,6 +8,14 @@ android {
         versionCode buildConfig.versionCode
         versionName buildConfig.versionName
     }
-
 }
-
+dependencies {
+}
+publish {
+    userOrg = bintray.userOrg
+    groupId = bintray.groupId
+    artifactId = 'wifimanager'
+    publishVersion = bintray.publishVersion
+    desc = bintray.desc
+    website = bintray.website
+}
