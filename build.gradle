@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.buildConfig = [
+            'compileSdkVersion': 28,
+            'minSdkVersion'    : 15,
+            'targetSdkVersion' : 28,
+            'versionCode'      : 1,
+            'versionName'      : '1.0',
+    ]
+    ext.bintray = [
+            'userOrg'       : 'hacknife',
+            'groupId'       : 'com.hacknife',
+            'publishVersion': '1.1.4',
+            'desc'          : '',
+            'website'       : 'https://github.com/hacknife/wifimanager',
+    ]
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.2'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
