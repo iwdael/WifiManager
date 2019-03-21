@@ -1,4 +1,4 @@
-package com.hacknife.sample;
+package com.hacknife.sample.app;
 
 import android.app.Application;
 import android.content.Context;

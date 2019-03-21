@@ -25,6 +25,8 @@ public abstract class BaseWifiManager implements IWifiManager {
     static final int WIFI_STATE_ENABLED = 4;
     static final int WIFI_STATE_UNKNOWN = 5;
     static final int WIFI_STATE_MODIFY = 6;
+    static final int WIFI_STATE_CONNECTED = 7;
+    static final int WIFI_STATE_UNCONNECTED = 8;
 
 
     WifiManager manager;
@@ -55,6 +57,12 @@ public abstract class BaseWifiManager implements IWifiManager {
                     break;
                 case WIFI_STATE_MODIFY:
                     onWifiChangeListener.onWifiChanged(wifis);
+                    break;
+                case WIFI_STATE_CONNECTED:
+                    onWifiConnectListener.onConnectChanged(true);
+                    break;
+                case WIFI_STATE_UNCONNECTED:
+                    onWifiConnectListener.onConnectChanged(false);
                     break;
             }
         }
@@ -126,6 +134,9 @@ public abstract class BaseWifiManager implements IWifiManager {
                 }
                 handler.sendEmptyMessage(what);
             } else if (action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
+
+                if (onWifiChangeListener == null) return;
+
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                     boolean isUpdated = intent.getBooleanExtra(WifiManager.EXTRA_RESULTS_UPDATED, false);
                     if (isUpdated)
@@ -134,6 +145,9 @@ public abstract class BaseWifiManager implements IWifiManager {
                     modifyWifi();
                 }
             } else if (action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
+
+                if (onWifiChangeListener == null) return;
+
                 NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
                 if (info == null) return;
                 NetworkInfo.DetailedState state = info.getDetailedState();
@@ -148,12 +162,16 @@ public abstract class BaseWifiManager implements IWifiManager {
                     modifyWifi(SSID, "获取地址信息...");
                 } else if (state == NetworkInfo.DetailedState.CONNECTED) {
                     modifyWifi(SSID, "已连接");
+                    if (onWifiConnectListener != null)
+                        handler.sendEmptyMessage(WIFI_STATE_CONNECTED);
                 } else if (state == NetworkInfo.DetailedState.SUSPENDED) {
                     modifyWifi(SSID, "连接中断");
                 } else if (state == NetworkInfo.DetailedState.DISCONNECTING) {
                     modifyWifi(SSID, "断开中...");
                 } else if (state == NetworkInfo.DetailedState.DISCONNECTED) {
                     modifyWifi(SSID, "已断开");
+                    if (onWifiConnectListener != null)
+                        handler.sendEmptyMessage(WIFI_STATE_UNCONNECTED);
                 } else if (state == NetworkInfo.DetailedState.FAILED) {
                     modifyWifi(SSID, "连接失败");
                 } else if (state == NetworkInfo.DetailedState.BLOCKED) {
@@ -164,6 +182,7 @@ public abstract class BaseWifiManager implements IWifiManager {
                     modifyWifi(SSID, "强制登陆门户");
                 }
             } else if (action.equals(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION)) {
+                if (onWifiChangeListener == null) return;
                 NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
                 if (info == null) return;
                 NetworkInfo.DetailedState state = info.getDetailedState();
