@@ -117,7 +117,10 @@ public class WifiHelper {
         List<IWifi> set = new ArrayList<>();
         for (IWifi wifi : list) {
             if (!set.contains(wifi)) {
-                set.add(wifi);
+                if (wifi.isConnected())
+                    set.add(0, wifi);
+                else
+                    set.add(wifi);
             }
         }
         return set;
