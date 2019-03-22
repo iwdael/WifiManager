@@ -11,7 +11,7 @@ buildscript {
     ext.bintray = [
             'userOrg'       : 'hacknife',
             'groupId'       : 'com.hacknife',
-            'publishVersion': '0.0.5',
+            'publishVersion': '1.0.0',
             'desc'          : '',
             'website'       : 'https://github.com/hacknife/wifimanager',
     ]
