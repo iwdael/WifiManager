@@ -47,20 +47,24 @@ public class WifiManager extends BaseWifiManager {
         if (manager.getConnectionInfo() != null && wifi.SSID().equals(manager.getConnectionInfo().getSSID()))
             return true;
         int networkId = WifiHelper.configOrCreateWifi(manager, wifi, password);
-        return manager.enableNetwork(networkId, true);
+        boolean ret = manager.enableNetwork(networkId, true);
+        modifyWifi(wifi.SSID(), "开始连接...");
+        return ret;
     }
 
     @Override
     public boolean connectSavedWifi(IWifi wifi) {
         int networkId = WifiHelper.configOrCreateWifi(manager, wifi, null);
+        boolean ret = manager.enableNetwork(networkId, true);
         modifyWifi(wifi.SSID(), "开始连接...");
-        return manager.enableNetwork(networkId, true);
+        return ret;
     }
 
     @Override
     public boolean connectOpenWifi(IWifi wifi) {
+        boolean ret = connectEncryptWifi(wifi, null);
         modifyWifi(wifi.SSID(), "开始连接...");
-        return connectEncryptWifi(wifi, null);
+        return ret;
     }
 
     @Override
