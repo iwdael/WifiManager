@@ -13,7 +13,7 @@ import com.hacknife.briefness.Briefnessor;
 import com.hacknife.sample.R;
 
 public abstract class Dialog<T extends Briefnessor> extends android.app.Dialog {
-    T briefnessor;
+    protected T briefnessor;
 
     public Dialog(Context context) {
         this(context, R.style.common_dialog_transparent_shadowed);

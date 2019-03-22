@@ -7,25 +7,25 @@ import com.hacknife.sample.BriefnessInjector;
 import com.hacknife.sample.R;
 import com.hacknife.sample.widget.base.Dialog;
 
-@BindLayout(R.layout.dialog_connected)
-public class ConnectedDialog extends Dialog<ConnectedDialogBriefnessor> {
+
+@BindLayout(R.layout.dialog_no_pass)
+public class NoPassDialog extends Dialog<NoPassDialogBriefnessor> {
     String content;
 
-    public ConnectedDialog(Context context) {
+    public NoPassDialog(Context context) {
         super(context);
     }
+
 
     public void onCancelClick() {
         dismiss();
     }
 
-    public interface OnConnectedDialogListener {
+    public interface OnConnectDialogListener {
         void onConfirm();
     }
 
-    OnConnectedDialogListener onConnectedDialogListener;
-
-    public ConnectedDialog content(String content) {
+    public NoPassDialog content(String content) {
         this.content = content;
         return this;
     }
@@ -35,14 +35,16 @@ public class ConnectedDialog extends Dialog<ConnectedDialogBriefnessor> {
         BriefnessInjector.injector(briefnessor.tv_content, content);
     }
 
-    public ConnectedDialog setOnConnectedDialogListener(OnConnectedDialogListener onConnectDialogListener) {
-        this.onConnectedDialogListener = onConnectDialogListener;
+    OnConnectDialogListener onConnectDialogListener;
+
+    public NoPassDialog setOnConnectDialogListener(OnConnectDialogListener onConnectDialogListener) {
+        this.onConnectDialogListener = onConnectDialogListener;
         return this;
     }
 
     public void onConfirmClick() {
         dismiss();
-        if (onConnectedDialogListener != null)
-            onConnectedDialogListener.onConfirm();
+        if (onConnectDialogListener != null)
+            onConnectDialogListener.onConfirm();
     }
 }

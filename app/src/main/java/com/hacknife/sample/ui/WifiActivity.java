@@ -3,6 +3,7 @@ package com.hacknife.sample.ui;
 import com.hacknife.refresh.core.api.Refresh;
 import com.hacknife.refresh.core.listener.OnRefreshListener;
 import com.hacknife.sample.adapter.WifiAdapter;
+import com.hacknife.sample.adapter.base.i.OnItemClickListener;
 import com.hacknife.sample.ui.base.BaseActivity;
 import com.hacknife.sample.ui.injector.modules.WifiModule;
 
@@ -16,6 +17,10 @@ import com.hacknife.sample.ui.viewmodel.WifiViewModel;
 import com.hacknife.briefness.BindLayout;
 import com.hacknife.sample.ui.injector.components.DaggerWifiActivityComponent;
 import com.hacknife.sample.ui.viewmodel.i.IWifiViewModel;
+import com.hacknife.sample.widget.ConnectDialog;
+import com.hacknife.sample.widget.ConnectedDialog;
+import com.hacknife.sample.widget.NoPassDialog;
+import com.hacknife.sample.widget.SavedDialog;
 import com.hacknife.wifimanager.IWifi;
 import com.hacknife.wifimanager.IWifiManager;
 import com.hacknife.wifimanager.OnWifiChangeListener;
@@ -64,7 +69,28 @@ public class WifiActivity extends BaseActivity<IWifiViewModel, WifiActivityBrief
         manager.setOnWifiChangeListener(this);
         manager.setOnWifiConnectListener(this);
         manager.setOnWifiStateChangeListener(this);
-
+        adapter.setOnRecyclerViewListener((OnItemClickListener<IWifi>) wifi -> {
+            if (wifi.isConnected())
+                new ConnectedDialog(context())
+                        .content(wifi.name())
+                        .setOnConnectedDialogListener(() -> manager.disConnectWifi())
+                        .show();
+            else if (wifi.isSaved())
+                new SavedDialog(context())
+                        .content(wifi.name())
+                        .setOnConnectDialogListener(() -> manager.connectSavedWifi(wifi))
+                        .setOnClearDialogListener(() -> manager.removeWifi(wifi))
+                        .show();
+            else if (!wifi.isEncrypt())
+                new NoPassDialog(context())
+                        .content(wifi.name())
+                        .setOnConnectDialogListener(() -> manager.connectOpenWifi(wifi))
+                        .show();
+            else
+                new ConnectDialog(context())
+                        .setOnConnectDialogListener(password -> manager.connectEncryptWifi(wifi, password))
+                        .show();
+        });
     }
 
 

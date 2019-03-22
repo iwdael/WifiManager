@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
             android:gravity="center"
-            android:text="连接网络"
+            android:text="已保存"
             android:textSize="16sp" />
 
         <include layout="@layout/include_divider_horizontal" />
 
-        <EditText
-            android:id="@+id/et_password"
+        <TextView
+            android:id="@+id/tv_content"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginHorizontal="50dp"
@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="取消"
+                android:text="清除"
                 app:click="onCancelClick" />
 
             <include layout="@layout/include_divider_vertical" />
@@ -60,8 +60,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="确认"
-                app:click="onConfirmClick($et_password$)" />
+                android:text="连接"
+                app:click="onConfirmClick" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

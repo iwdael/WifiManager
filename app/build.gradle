@@ -9,8 +9,12 @@ android {
         versionCode buildConfig.versionCode
         versionName buildConfig.versionName
     }
-}
 
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'

@@ -7,12 +7,13 @@ import com.hacknife.sample.R;
 import com.hacknife.sample.widget.base.Dialog;
 
 @BindLayout(R.layout.dialog_connect)
-public class ConnectDialog<ConnectDialogBriefnessor> extends Dialog {
+public class ConnectDialog extends Dialog<ConnectDialogBriefnessor> {
     public ConnectDialog(Context context) {
         super(context);
     }
 
     public void onCancelClick() {
+        dismiss();
     }
 
     public interface OnConnectDialogListener {
@@ -27,6 +28,7 @@ public class ConnectDialog<ConnectDialogBriefnessor> extends Dialog {
     }
 
     public void onConfirmClick(String password) {
+        dismiss();
         if (onConnectDialogListener != null)
             onConnectDialogListener.onConfirm(password);
     }
