@@ -53,17 +53,21 @@ public class WifiManager extends BaseWifiManager {
     @Override
     public boolean connectSavedWifi(IWifi wifi) {
         int networkId = WifiHelper.configOrCreateWifi(manager, wifi, null);
+        modifyWifi(wifi.SSID(), "开始连接...");
         return manager.enableNetwork(networkId, true);
     }
 
     @Override
     public boolean connectOpenWifi(IWifi wifi) {
+        modifyWifi(wifi.SSID(), "开始连接...");
         return connectEncryptWifi(wifi, null);
     }
 
     @Override
     public boolean removeWifi(IWifi wifi) {
-        return WifiHelper.deleteWifiConfiguration(manager, wifi);
+        boolean ret = WifiHelper.deleteWifiConfiguration(manager, wifi);
+        modifyWifi();
+        return ret;
     }
 
     @Override

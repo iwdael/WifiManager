@@ -199,7 +199,7 @@ public abstract class BaseWifiManager implements IWifiManager {
         }
     }
 
-    public void modifyWifi() {
+    protected void modifyWifi() {
         synchronized (wifis) {
             List<ScanResult> results = manager.getScanResults();
             List<IWifi> wifiList = new LinkedList<>();
@@ -230,7 +230,7 @@ public abstract class BaseWifiManager implements IWifiManager {
         }
     }
 
-    public void modifyWifi(String SSID, String state) {
+    protected void modifyWifi(String SSID, String state) {
         synchronized (wifis) {
             for (IWifi wifi : wifis) {
                 if (SSID.equals(wifi.SSID())) {
