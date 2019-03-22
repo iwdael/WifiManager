@@ -169,7 +169,8 @@ public abstract class BaseWifiManager implements IWifiManager {
                 } else if (state == NetworkInfo.DetailedState.DISCONNECTING) {
                     modifyWifi(SSID, "断开中...");
                 } else if (state == NetworkInfo.DetailedState.DISCONNECTED) {
-                    modifyWifi(SSID, "已断开");
+//                    modifyWifi(SSID, "已断开");
+                    modifyWifi();
                     handler.sendEmptyMessage(WIFI_STATE_UNCONNECTED);
                 } else if (state == NetworkInfo.DetailedState.FAILED) {
                     modifyWifi(SSID, "连接失败");
