@@ -235,6 +235,8 @@ public abstract class BaseWifiManager implements IWifiManager {
             for (IWifi wifi : wifis) {
                 if (SSID.equals(wifi.SSID())) {
                     wifi.state(state);
+                    wifis.remove(wifi);
+                    wifis.add(0, wifi);
                 } else {
                     wifi.state(null);
                 }
