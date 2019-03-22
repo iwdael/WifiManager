@@ -232,13 +232,14 @@ public abstract class BaseWifiManager implements IWifiManager {
 
     protected void modifyWifi(String SSID, String state) {
         synchronized (wifis) {
+            List<IWifi> wifiList = new ArrayList<>();
             for (IWifi wifi : wifis) {
                 if (SSID.equals(wifi.SSID())) {
                     wifi.state(state);
-                    wifis.remove(wifi);
-                    wifis.add(0, wifi);
+                    wifiList.add(0, wifi);
                 } else {
                     wifi.state(null);
+                    wifiList.add(wifi);
                 }
             }
             handler.sendEmptyMessage(WIFI_STATE_MODIFY);
