@@ -24,6 +24,8 @@ public class Wifi implements IWifi {
         if (TextUtils.isEmpty(result.SSID))
             return null;
         Wifi wifi = new Wifi();
+        wifi.isConnected = false;
+        wifi.isSaved = false;
         wifi.name = result.SSID;
         wifi.SSID = "\"" + result.SSID + "\"";
         wifi.isConnected = wifi.SSID.equals(connectedSSID);
@@ -124,6 +126,7 @@ public class Wifi implements IWifi {
         ip = merge.ip();
         state = merge.state();
         level = merge.level();
+        description = merge.description();
         return this;
     }
 
