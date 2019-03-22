@@ -126,7 +126,7 @@ public class Wifi implements IWifi {
         ip = merge.ip();
         state = merge.state();
         level = merge.level();
-        description = merge.description();
+        description = ((Wifi) merge).description;
         return this;
     }
 
