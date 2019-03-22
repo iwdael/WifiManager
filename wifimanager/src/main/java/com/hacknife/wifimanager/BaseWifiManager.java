@@ -241,6 +241,8 @@ public abstract class BaseWifiManager implements IWifiManager {
                     wifiList.add(wifi);
                 }
             }
+            wifis.clear();
+            wifis.addAll(wifiList);
             handler.sendEmptyMessage(WIFI_STATE_MODIFY);
         }
     }
