@@ -139,5 +139,20 @@ public class Wifi implements IWifi {
         return ((Wifi) obj).SSID.equals(this.SSID);
     }
 
-
+    @Override
+    public String toString() {
+        return "{" +
+                "\"name\":\'" + name + "\'" +
+                ", \"SSID\":\'" + SSID + "\'" +
+                ", \"isEncrypt\":" + isEncrypt +
+                ", \"isSaved\":" + isSaved +
+                ", \"isConnected\":" + isConnected +
+                ", \"encryption\":\'" + encryption + "\'" +
+                ", \"description\":\'" + description + "\'" +
+                ", \"capabilities\":\'" + capabilities + "\'" +
+                ", \"ip\":\'" + ip + "\'" +
+                ", \"state\":\'" + state + "\'" +
+                ", \"level\":" + level +
+                '}';
+    }
 }
