@@ -162,7 +162,8 @@ public abstract class BaseWifiManager implements IWifiManager {
                 } else if (state == NetworkInfo.DetailedState.OBTAINING_IPADDR) {
                     modifyWifi(SSID, "获取地址信息...");
                 } else if (state == NetworkInfo.DetailedState.CONNECTED) {
-                    modifyWifi(SSID, "已连接");
+//                    modifyWifi(SSID, "已连接");
+                    modifyWifi();
                     handler.sendEmptyMessage(WIFI_STATE_CONNECTED);
                 } else if (state == NetworkInfo.DetailedState.SUSPENDED) {
                     modifyWifi(SSID, "连接中断");
