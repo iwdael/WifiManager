@@ -12,6 +12,9 @@ public class ConnectDialog<ConnectDialogBriefnessor> extends Dialog {
         super(context);
     }
 
+    public void onCancelClick() {
+    }
+
     public interface OnConnectDialogListener {
         void onConfirm(String password);
     }
