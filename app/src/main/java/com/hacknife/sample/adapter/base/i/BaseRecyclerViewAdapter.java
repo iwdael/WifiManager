@@ -100,10 +100,10 @@ public abstract class BaseRecyclerViewAdapter<E, T extends BaseRecyclerViewHolde
         return data;
     }
 
-    public void bindData(List<E> data) {
-        if (data != null) {
-            data.clear();
-            data.addAll(data);
+    public void bindData(List<E> es) {
+        if (es != null) {
+            this.data.clear();
+            this.data.addAll(es);
         }
         notifyDataSetChanged();
     }
