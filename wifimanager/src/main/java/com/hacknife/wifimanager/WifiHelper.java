@@ -42,38 +42,35 @@ public class WifiHelper {
         if (password == null) {
             configuration.hiddenSSID = false;
             configuration.status = WifiConfiguration.Status.ENABLED;
+            configuration.SSID = wifi.SSID();
             if (wifi.capabilities().contains(WEP)) {
                 configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
                 configuration.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
                 configuration.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP104);
-                configuration.SSID = wifi.SSID();
                 configuration.wepTxKeyIndex = 0;
                 configuration.wepKeys[0] = "";
             } else if (wifi.capabilities().contains(PSK)) {
-                configuration.SSID = wifi.SSID();
                 configuration.preSharedKey = "";
             } else if (wifi.capabilities().contains(EAP)) {
                 configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_EAP);
                 configuration.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
                 configuration.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
                 configuration.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
-                configuration.SSID = wifi.SSID();
                 configuration.preSharedKey = "";
             } else {
                 configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-                configuration.SSID = wifi.SSID();
                 configuration.preSharedKey = null;
             }
         } else {
             configuration.allowedAuthAlgorithms.clear();
             configuration.allowedGroupCiphers.clear();
             configuration.allowedKeyManagement.clear();
-            configuration.allowedProtocols.clear();
             configuration.allowedPairwiseCiphers.clear();
+            configuration.allowedProtocols.clear();
             configuration.SSID = wifi.SSID();
             if (wifi.capabilities().contains(WEP)) {
+                configuration.preSharedKey = "\"" + password + "\"";
                 configuration.hiddenSSID = true;
-                configuration.preSharedKey = "\"" + password + "\n";
                 configuration.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.SHARED);
                 configuration.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
                 configuration.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
@@ -83,7 +80,7 @@ public class WifiHelper {
                 configuration.wepTxKeyIndex = 0;
             } else if (wifi.capabilities().contains(WPA)) {
                 configuration.hiddenSSID = true;
-                configuration.preSharedKey = "\"" + password + "\n";
+                configuration.preSharedKey = "\"" + password + "\"";
                 configuration.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN);
                 configuration.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
                 configuration.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
