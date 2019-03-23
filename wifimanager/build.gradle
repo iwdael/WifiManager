@@ -9,13 +9,11 @@ android {
         versionName buildConfig.versionName
     }
 }
-dependencies {
-}
 publish {
-    userOrg = bintray.userOrg
-    groupId = bintray.groupId
+    userOrg = 'hacknife'
+    groupId = 'com.hacknife'
     artifactId = 'wifimanager'
     publishVersion = bintray.publishVersion
-    desc = bintray.desc
-    website = bintray.website
+    desc = ''
+    website = 'https://github.com/hacknife/wifimanager'
 }
