@@ -9,7 +9,11 @@ buildscript {
             'versionName'      : '1.0',
     ]
     ext.bintray = [
-            'publishVersion': '1.0.0'
+            'userOrg'       : 'hacknife',
+            'groupId'       : 'com.hacknife',
+            'publishVersion': '1.0.0',
+            'desc'          : '',
+            'website'       : 'https://github.com/hacknife/wifimanager',
     ]
     repositories {
         google()
