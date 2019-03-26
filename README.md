@@ -45,7 +45,7 @@ WifiManager主要是由*IWifiManager*和*IWifi*组成，IWifiManager中可实现
 
 |方法|功能|
 |:------:|:------:|
-|onWifiChanged(List<IWifi> wifis|wifi列表|
+|onWifiChanged(List<IWifi> wifis)|wifi列表，wifi所有变化都会通过此方法，只需要展示此列表即可|
 
 #### OnWifiConnectListener
 
