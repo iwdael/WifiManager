@@ -41,3 +41,43 @@ WifiManager主要是由*IWifiManager*和*IWifi*组成，IWifiManager中可实现
 |description()|wifi描述|
 |description2()|wifi描述，含Ip|
 
+#### OnWifiChangeListener
+
+|方法|功能|
+|:------:|:------:|
+|onWifiChanged(List<IWifi> wifis|wifi列表|
+
+#### OnWifiConnectListener
+
+|方法|功能|
+|:------:|:------:|
+|onConnectChanged(boolean status)|wifi是否连接|
+
+#### OnWifiStateChangeListener
+
+|方法|功能|
+|:------:|:------:|
+|onStateChanged(State state)|wifi状态，例如：开启中，已开启，关闭中，已关闭|
+
+## 使用说明
+1.获取*IWifiManager*
+```
+    IWifiManager.create(Context context);
+```
+2.销毁*IWifiManager*
+```
+    iWifiManager.destroy();
+```
+## 快速引入项目
+合并以下代码到需要使用的Module的dependencies中。
+```Java
+	dependencies {
+                ...
+              implementation 'com.hacknife:wifimanager:1.0.0'
+	}
+```
+<br><br><br>
+## 感谢浏览
+请不要吝啬你的小星星，如果你有任何疑问，请加入QQ群，我将竭诚为你解答。
+<br>
+![Image Text](https://github.com/hacknife/CarouselBanner/blob/master/qq_group.png)
