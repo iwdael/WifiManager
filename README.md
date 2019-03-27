@@ -6,6 +6,9 @@
 * 连接或操作中的WIFI自动置顶
 * 自动刷新WIFI列表
 * 支持常见Wifi操作
+<br/><br/><br/>
+![](https://github.com/hacknife/WifiManager/blob/master/screenshots.png)
+<br/><br/>
 ## 概述
 WifiManager主要是由*IWifiManager*和*IWifi*组成，IWifiManager中可实现三个接口，完成Wifi列表数据更新
 ### Class
