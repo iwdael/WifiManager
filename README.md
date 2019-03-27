@@ -73,7 +73,7 @@ WifiManager主要是由*IWifiManager*和*IWifi*组成，IWifiManager中可实现
 ```
 ## 快速引入项目
 合并以下代码到需要使用的Module的dependencies中。
-```Java
+```
 	dependencies {
                 ...
               implementation 'com.hacknife:wifimanager:1.0.0'
