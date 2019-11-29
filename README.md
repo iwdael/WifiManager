@@ -1,5 +1,5 @@
 # WifiManager
-[![](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/language-java-yellow.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/Jcenter-1.0.0-brightgreen.svg)](https://jcenter.bintray.com/com/hacknife/wifimanager/) [![](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/license-apache--2.0-green.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/api-11+-green.svg)](https://github.com/hacknife/wifimanager)<br/><br/>
+[![](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/language-java-yellow.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/Jcenter-1.0.2-brightgreen.svg)](https://jcenter.bintray.com/com/hacknife/wifimanager/) [![](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/license-apache--2.0-green.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/api-11+-green.svg)](https://github.com/hacknife/wifimanager)<br/><br/>
 简化Android Wifi开发，已实现常用的功能，比如获取WiFi管理，WiFi列表，断开、清除或者连接WiFi。
 ## 特点
 * 根据信号强度排序
