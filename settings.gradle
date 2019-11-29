@@ -1,1 +1,2 @@
-include ':app', ':wifimanager'
+include ':app'
+include ':wifimanager'

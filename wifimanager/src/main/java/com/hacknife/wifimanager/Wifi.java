@@ -28,7 +28,8 @@ public class Wifi implements IWifi {
         wifi.isSaved = false;
         wifi.name = result.SSID;
         wifi.SSID = "\"" + result.SSID + "\"";
-        wifi.isConnected = wifi.SSID.equals(connectedSSID) && ipAddress > 0;
+//        wifi.isConnected = wifi.SSID.equals(connectedSSID) && ipAddress > 0;
+        wifi.isConnected = wifi.SSID.equals(connectedSSID);
         wifi.capabilities = result.capabilities;
         wifi.isEncrypt = true;
         wifi.encryption = "";
