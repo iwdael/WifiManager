@@ -76,7 +76,7 @@ WifiManager主要是由*IWifiManager*和*IWifi*组成，IWifiManager中可实现
 ```
 	dependencies {
                 ...
-              implementation 'com.hacknife:wifimanager:1.0.0'
+              implementation 'com.hacknife:wifimanager:1.0.2'
 	}
 ```
 <br><br><br>
