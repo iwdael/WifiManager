@@ -1,21 +1,15 @@
+apply from: './../config.gradle'
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 android {
-    compileSdkVersion buildConfig.compileSdkVersion
+    buildToolsVersion buidConfig.buildToolsVersion
+    compileSdkVersion buidConfig.compileSdkVersion
     defaultConfig {
-        minSdkVersion buildConfig.minSdkVersion
-        targetSdkVersion buildConfig.targetSdkVersion
-        versionCode buildConfig.versionCode
-        versionName buildConfig.versionName
+        minSdkVersion buidConfig.minSdkVersion
+        targetSdkVersion buidConfig.targetSdkVersion
+        versionCode buidConfig.versionCode
+        versionName buidConfig.versionName
     }
 }
 dependencies {
-}
-publish {
-    userOrg = bintray.userOrg
-    groupId = bintray.groupId
-    artifactId = 'wifimanager'
-    publishVersion = bintray.publishVersion
-    desc = bintray.desc
-    website = bintray.website
+    compileOnly dependent.appcompat
 }

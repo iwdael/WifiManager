@@ -1,28 +1,18 @@
+apply from: './../config.gradle'
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion buildConfig.compileSdkVersion
+    buildToolsVersion buidConfig.buildToolsVersion
+    compileSdkVersion buidConfig.compileSdkVersion
     defaultConfig {
-        applicationId "com.hacknife.sample"
-        minSdkVersion buildConfig.minSdkVersion
-        targetSdkVersion buildConfig.targetSdkVersion
-        versionCode buildConfig.versionCode
-        versionName buildConfig.versionName
-    }
-
-    compileOptions {
-        sourceCompatibility = '1.8'
-        targetCompatibility = '1.8'
+        applicationId "com.iwdael.wifimanager.example"
+        minSdkVersion buidConfig.minSdkVersion
+        targetSdkVersion buidConfig.targetSdkVersion
+        versionCode buidConfig.versionCode
+        versionName buidConfig.versionName
     }
 }
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation dependent.appcompat
+    implementation dependent.constraintlayout
     implementation project(':wifimanager')
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.hacknife.refreshlayout:refresh:1.3.7'
-    implementation 'com.google.dagger:dagger:2.14.1'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
-    implementation 'com.hacknife.briefness:briefness:2.0.5'
-    annotationProcessor 'com.hacknife.briefness:briefness-compiler:2.0.5'
 }
