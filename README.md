@@ -1,5 +1,10 @@
 # WifiManager
-[![](https://img.shields.io/badge/platform-android-orange.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/language-java-yellow.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/Jcenter-1.0.2-brightgreen.svg)](https://jcenter.bintray.com/com/hacknife/wifimanager/) [![](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/hacknife/wifimanager) [![](https://img.shields.io/badge/license-apache--2.0-green.svg)](https://github.com/hacknife) [![](https://img.shields.io/badge/api-11+-green.svg)](https://github.com/hacknife/wifimanager)<br/><br/>
+![](https://img.shields.io/badge/platform-android-orange.svg)
+![](https://img.shields.io/badge/language-java-yellow.svg)
+![](https://jitpack.io/v/iwdael/wifimanager.svg)
+![](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![](https://img.shields.io/badge/license-apache--2.0-green.svg)
+![](https://img.shields.io/badge/api-19+-green.svg)
 简化Android Wifi开发，已实现常用的功能，比如获取WiFi管理，WiFi列表，断开、清除或者连接WiFi。
 ## 特点
 * 根据信号强度排序
@@ -7,7 +12,7 @@
 * 自动刷新WIFI列表
 * 支持常见Wifi操作
 <br/><br/><br/>
-![](https://github.com/hacknife/WifiManager/blob/master/screenshots.png)
+![](https://github.com/iwdael/WifiManager/blob/master/screenshots.png)
 <br/><br/>
 ## 概述
 WifiManager主要是由*IWifiManager*和*IWifi*组成，IWifiManager中可实现三个接口，完成Wifi列表数据更新
@@ -76,11 +81,11 @@ WifiManager主要是由*IWifiManager*和*IWifi*组成，IWifiManager中可实现
 ```
 	dependencies {
                 ...
-              implementation 'com.hacknife:wifimanager:1.0.2'
+              implementation 'com.iwdael:wifimanager:$version'
 	}
 ```
 <br><br><br>
 ## 感谢浏览
 请不要吝啬你的小星星，如果你有任何疑问，请加入QQ群，我将竭诚为你解答。
 <br>
-![Image Text](https://github.com/hacknife/CarouselBanner/blob/master/qq_group.png)
+![Image Text](https://github.com/iwdael/CarouselBanner/blob/master/qq_group.png)
