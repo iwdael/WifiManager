@@ -5,6 +5,7 @@
 ![](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![](https://img.shields.io/badge/license-apache--2.0-green.svg)
 ![](https://img.shields.io/badge/api-19+-green.svg)
+
 简化Android Wifi开发，已实现常用的功能，比如获取WiFi管理，WiFi列表，断开、清除或者连接WiFi。
 ## 特点
 * 根据信号强度排序
