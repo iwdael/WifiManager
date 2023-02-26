@@ -1,5 +1,8 @@
 package com.iwdael.wifimanager;
 
+import android.net.MacAddress;
+import android.net.wifi.ScanResult;
+
 public interface IWifi {
 
     String name();
@@ -32,4 +35,6 @@ public interface IWifi {
     IWifi merge(IWifi merge);
 
     String state();
+
+    ScanResult getScanResult();
 }
