@@ -18,6 +18,7 @@ public class Wifi implements IWifi {
     protected String ip;
     protected String state;
     protected int level;
+    protected ScanResult scanResult;
 
 
     public static IWifi create(ScanResult result, List<WifiConfiguration> configurations, String connectedSSID, int ipAddress) {
@@ -25,6 +26,7 @@ public class Wifi implements IWifi {
             return null;
         Wifi wifi = new Wifi();
         wifi.isConnected = false;
+        wifi.scanResult = result;
         wifi.isSaved = false;
         wifi.name = result.SSID;
         wifi.SSID = "\"" + result.SSID + "\"";
@@ -121,6 +123,11 @@ public class Wifi implements IWifi {
     }
 
     @Override
+    public ScanResult getScanResult() {
+        return scanResult;
+    }
+
+    @Override
     public IWifi merge(IWifi merge) {
         isSaved = merge.isSaved();
         isConnected = merge.isConnected();
@@ -157,6 +164,7 @@ public class Wifi implements IWifi {
                 ", \"ip\":\'" + ip + "\'" +
                 ", \"state\":\'" + state + "\'" +
                 ", \"level\":" + level +
+                ", \"scanResult\":" + scanResult +
                 '}';
     }
 }
